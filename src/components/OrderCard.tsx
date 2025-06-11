@@ -1,7 +1,7 @@
 import { Order } from "../services/OrderService";
 import { useNavigate } from "react-router-dom";
 
-export const OrderCard: React.FC<Order> = ({id, user, product, amount, state_log}) => {
+export const OrderCard: React.FC<Order> = ({id, user, product, amount, current_state}) => {
 
 
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ export const OrderCard: React.FC<Order> = ({id, user, product, amount, state_log
             <li>Cliente: {user}</li>
             <li>Producto: {product}</li>
             <li>Cantidad: {amount}</li>
-            <li>{JSON.stringify(state_log)}</li>
+            <li>Estado: {current_state}</li>
         </ul>
         <button onClick={() => navigate(`/orders/${id}`)}>Gestionar</button>
     </div>
