@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { fetchOrderbyID, Order, fetchLaunchTrigger } from "../services/OrderService";
+import { fetchProductById } from "../services/ProductService";
 import ChangeState from "../components/ChangeStates";
 import './css/OrdersDetail.css'
 
@@ -10,14 +11,29 @@ const OrdersDetailPage: React.FC = () => {
   const navigate = useNavigate();
   const [order, setOrder] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true)
+  const [productName, setProductName] = useState<string | null>(null);
+  const [price, setPrice] = useState(0);
+  const [unitPrice, setUnitPrice] = useState(0);
 
 
   useEffect(() => {
     fetchOrderbyID(Number(id))
-      .then(data => setOrder(data))
+      .then(async (data) => {
+        setOrder(data);
+        try {
+          console.log(data.product)
+          const product = await fetchProductById(Number(data.product));
+          console.log(product)
+          setProductName(product.name);
+          setPrice(product.price * data.amount)
+          setUnitPrice(Number(product.price))
+        } catch (err) {
+          console.error("No se pudo obtener el nombre del producto", err);
+        }
+      })
       .catch(err => console.error(err))
       .finally(() => setLoading(false));
-  }, [])
+  }, []);
 
   if (!order) return <div className="spinner"></div>;
 
@@ -42,8 +58,10 @@ const OrdersDetailPage: React.FC = () => {
         <div className="order-details">
           <h1>Orden #{order.id}</h1>
           <p><strong>Usuario:</strong> {order.user}</p>
-          <p><strong>Producto:</strong> {order.product}</p>
+          <p><strong>Producto:</strong> {productName ?? order.product}</p>
           <p><strong>Cantidad:</strong> {order.amount}</p>
+          <p><strong>Precio unitario del producto:</strong> ${unitPrice ?? order.product}</p>
+          <p><strong>Precio de la orden:</strong> ${price ?? order.product}</p>
           <p><strong>Estado actual:</strong> {order.current_state}</p>
           <ChangeState currentState={order.current_state} onTriggerClick={handleTrigger} />
         </div>

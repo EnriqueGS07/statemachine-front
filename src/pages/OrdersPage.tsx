@@ -10,7 +10,7 @@ const OrdersPage: React.FC = () => {
 
     useEffect(() => {
         fetchOrders()
-            .then(data => setOrders(data))
+            .then(data => {setOrders(data)})
             .catch(err => console.error(err))
             .finally(() => setLoading(false));
     }, [])
