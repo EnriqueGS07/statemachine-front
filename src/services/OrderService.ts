@@ -1,10 +1,10 @@
 export type Order = {
-    id: number;
-    user: string;
-    product: string;
-    amount: number;
-    current_state: string,
-    state_log: { [key: string]: any }
+  id: number;
+  user: string;
+  product: string;
+  amount: number;
+  current_state: string,
+  state_log: { [key: string]: any }
 };
 
 export async function fetchOrders(): Promise<Order[]> {
@@ -30,11 +30,26 @@ export async function fetchLaunchTrigger(id:number, trigger: any): Promise<Order
     "Content-Type": "application/json",
   },
   body: JSON.stringify({trigger: trigger})
-  });
-
+  });     
   if (!res.ok) {
     throw new Error("Error al cambiar el estado");
   }
+  return res.json();
+}
+
+export async function createOrder(user: string, product: string, amount: number): Promise<Order> {
+  const res = await fetch("http://localhost:8000/api/orders/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ user, product, amount }),
+  });
+
+  if (!res.ok) {
+    throw new Error("Error al crear la orden");
+  }
+
   return res.json();
 }
 

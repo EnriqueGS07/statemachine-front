@@ -1,13 +1,13 @@
 import { Order } from "../services/OrderService";
 import { useNavigate } from "react-router-dom";
+import './css/OrderCard.css'
 
 export const OrderCard: React.FC<Order> = ({id, user, product, amount, current_state}) => {
 
 
     const navigate = useNavigate();
-
     return(
-    <div>
+    <div className="order-card">
         <h2>Orden #{id}</h2>
         <ul>
             <li>Cliente: {user}</li>
