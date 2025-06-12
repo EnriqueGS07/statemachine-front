@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import { createOrder } from "../services/OrderService";
+import { createOrder, Order } from "../services/OrderService";
 import './css/CreateOrder.css'
 
-const CreateOrder: React.FC = () => {
+interface props {
+  onOrderCreated: (order: Order) => void;
+}
+
+const CreateOrder: React.FC<props> = ({onOrderCreated}) => {
     const [showForm, setShowForm] = useState(false);
     const [user, setUser] = useState("");
     const [product, setProduct] = useState("");
@@ -20,6 +24,7 @@ const CreateOrder: React.FC = () => {
 
         try {
             const newOrder = await createOrder(user, product, amount);
+            onOrderCreated(newOrder)
             setMessage("Orden creada exitosamente");
             setUser("");
             setProduct("");

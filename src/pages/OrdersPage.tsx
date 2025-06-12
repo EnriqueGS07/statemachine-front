@@ -17,6 +17,11 @@ const OrdersPage: React.FC = () => {
 
     if (loading) return (<div className="spinner"></div>
     )
+
+    const handleNewOrder = (newOrder: Order) => {
+        setOrders(prev => [...prev, newOrder]);
+    };
+
     return (
         <div className="order-page">
             <h1>Ordenes</h1>
@@ -26,7 +31,7 @@ const OrdersPage: React.FC = () => {
                 ))}
             </div>
             <div className="create-order-section">
-                <CreateOrder />
+                <CreateOrder onOrderCreated={handleNewOrder} />
             </div>
         </div>
     )
