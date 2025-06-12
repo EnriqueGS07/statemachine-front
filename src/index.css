@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-button{
+button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -22,7 +22,7 @@ button{
   font-weight: bold;
 }
 
-button:hover{
+button:hover {
   background-color: #0056b3;
 }
 

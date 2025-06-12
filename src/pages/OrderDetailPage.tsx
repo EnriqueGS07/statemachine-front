@@ -46,7 +46,7 @@ const OrdersDetailPage: React.FC = () => {
           <p><strong>Cantidad:</strong> {order.amount}</p>
           <p><strong>Estado actual:</strong> {order.current_state}</p>
           <ChangeState currentState={order.current_state} onTriggerClick={handleTrigger} />
-        </div>  
+        </div>
         <div className="order-log">
           <h2>Historial de estados</h2>
           <ul>

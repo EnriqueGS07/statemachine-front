@@ -6,18 +6,18 @@ import './css/OrdersPage.css'
 
 const OrdersPage: React.FC = () => {
     const [orders, setOrders] = useState<Order[]>([])
-    const[loading, setLoading] = useState(true)
-    
-    useEffect(() =>{
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
         fetchOrders()
-        .then(data => setOrders(data))
-        .catch(err => console.error(err))
-        .finally(() => setLoading(false));
-    },[])
+            .then(data => setOrders(data))
+            .catch(err => console.error(err))
+            .finally(() => setLoading(false));
+    }, [])
 
     if (loading) return (<div className="spinner"></div>
     )
-    return(
+    return (
         <div className="order-page">
             <h1>Ordenes</h1>
             <div className="order-list">

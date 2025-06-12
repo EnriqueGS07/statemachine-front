@@ -1,6 +1,6 @@
 .order-detail-page {
-  padding: 20px;
-  font-family: sans-serif;
+    padding: 20px;
+    font-family: sans-serif;
 }
 
 .back-button {
@@ -13,38 +13,38 @@
     border-radius: 4px;
 }
 
-.back-button:hover{
+.back-button:hover {
     color: white;
 }
 
 .order-content {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
 }
 
 .order-details,
 .order-log {
-  flex: 1;
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .order-details h1 {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .order-log h2 {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .order-log ul {
-  list-style: none;
-  padding-left: 0;
+    list-style: none;
+    padding-left: 0;
 }
 
 .order-log li {
-  margin-bottom: 8px;
+    margin-bottom: 8px;
 }

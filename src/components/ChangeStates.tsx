@@ -8,23 +8,23 @@ type ChangeStatesProps = {
 
 
 const triggerMap: Record<string, string[]> = {
-Pending: ["pendingBiometricalVerification","noVerificationNeeded","orderCancelled","paymentFailed","orderCancelledByUser"],
-OnHold:["biometricalVerificationSuccessful","orderCancelledByUser","verificationFailed"],
-PendingPayment:["paymentSuccessful","orderCancelledByUser"],
-Confirmed:["preparingShipment","orderCancelledByUser" ],
-Processing:["itemDispatched","orderCancelledByUser" ],
-Shipped:["itemReceivedByCustomer","deliveryIssue","orderCancelledByUser"],
-Delivered:["Returning"],
-Returning:["returnInitiatedByCustomer", "orderCancelledByUser"],
-Returned:["refundProcessed"],
-Refunded:[],
-Cancelled:[],
+  Pending: ["pendingBiometricalVerification", "noVerificationNeeded", "orderCancelled", "paymentFailed", "orderCancelledByUser"],
+  OnHold: ["biometricalVerificationSuccessful", "orderCancelledByUser", "verificationFailed"],
+  PendingPayment: ["paymentSuccessful", "orderCancelledByUser"],
+  Confirmed: ["preparingShipment", "orderCancelledByUser"],
+  Processing: ["itemDispatched", "orderCancelledByUser"],
+  Shipped: ["itemReceivedByCustomer", "deliveryIssue", "orderCancelledByUser"],
+  Delivered: ["Returning"],
+  Returning: ["returnInitiatedByCustomer", "orderCancelledByUser"],
+  Returned: ["refundProcessed"],
+  Refunded: [],
+  Cancelled: [],
 };
 
 export const ChangeState: React.FC<ChangeStatesProps> = ({ currentState, onTriggerClick }) => {
 
 
-const availableTriggers = triggerMap[currentState] || [];
+  const availableTriggers = triggerMap[currentState] || [];
 
   return (
     <div>
