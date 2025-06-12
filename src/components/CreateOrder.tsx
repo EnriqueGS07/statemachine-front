@@ -39,8 +39,8 @@ const CreateOrder: React.FC = () => {
         {showForm && (
             <div className="modal-overlay">
                 <div className="modal-content">
-                    <button className="close-button" onClick={toggleForm}>×</button>
                     <h2>Nueva Orden</h2>
+                    <button className="close-button" onClick={toggleForm}>x</button>
                     <form onSubmit={handleSubmit}>
                       <div>
                             <label>Usuario</label>
