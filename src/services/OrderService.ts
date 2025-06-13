@@ -1,16 +1,23 @@
+export type StateLogEntry = {
+  [state: string]: {
+    evento: string;
+    hora: string;
+  };
+};
+
 export type Order = {
   id: number;
   user: string;
   product: string;
   amount: number;
   current_state: string,
-  state_log: { [key: string]: any }
+  state_log: StateLogEntry[],
+  active_ticket: number
 };
 
 const apiUrl = process.env.REACT_APP_API_LAMBDA_URL;
 
 export async function fetchOrders(): Promise<Order[]> {
-  console.log(apiUrl);
   const res = await fetch(`${apiUrl}/api/orders/`);
   if (!res.ok) {
     throw new Error("Error al obtener las órdenes");

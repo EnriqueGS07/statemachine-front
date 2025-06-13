@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { fetchProductById } from "../services/ProductService";
 import './css/OrderCard.css'
 
-export const OrderCard: React.FC<Order> = ({ id, user, product, amount, current_state }) => {
+export const OrderCard: React.FC<Order> = ({ id, user, product, amount, current_state, active_ticket }) => {
     const navigate = useNavigate();
     const [productName, setProductName] = useState("");
 
@@ -27,6 +27,7 @@ export const OrderCard: React.FC<Order> = ({ id, user, product, amount, current_
                 <li>Producto: {productName}</li>
                 <li>Cantidad: {amount}</li>
                 <li>Estado: {current_state}</li>
+                {active_ticket !== -1 && <li id="ticket">Support Ticket: #{active_ticket}</li>}
             </ul>
             <button onClick={() => navigate(`/orders/${id}`)}>Gestionar</button>
         </div>

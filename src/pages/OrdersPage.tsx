@@ -10,7 +10,7 @@ const OrdersPage: React.FC = () => {
 
     useEffect(() => {
         fetchOrders()
-            .then(data => {setOrders(data)})
+            .then(data => { setOrders(data) })
             .catch(err => console.error(err))
             .finally(() => setLoading(false));
     }, [])
@@ -25,14 +25,16 @@ const OrdersPage: React.FC = () => {
     return (
         <div className="order-page">
             <h1>Gestor de Ordenes</h1>
+            <div className="create-order-section">
+                <CreateOrder onOrderCreated={handleNewOrder} />
+            </div>
+            <hr/>
             <div className="order-list">
                 {orders.map(order => (
                     <OrderCard key={order.id} {...order} />
                 ))}
             </div>
-            <div className="create-order-section">
-                <CreateOrder onOrderCreated={handleNewOrder} />
-            </div>
+
         </div>
     )
 }

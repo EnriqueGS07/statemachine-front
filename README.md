@@ -13,6 +13,7 @@ Este es el Repositorio del Front, fue desarrollado en React y Typescript
 ## 🚀 Demo
 
 http://zappa-front.s3-website-us-east-1.amazonaws.com
+⚠️ *Este proyecto está desplegado en un bucket S3 configurado como sitio web estático. Debido a las limitaciones de este tipo de despliegue, no se admite conexión HTTPS directamente desde el bucket.*
 
 ## 📦 Prerrequisitos
 Antes de ejecutar o desplegar el frontend, asegúrate de tener lo siguiente instalado:

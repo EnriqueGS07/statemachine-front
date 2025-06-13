@@ -21,9 +21,7 @@ const OrdersDetailPage: React.FC = () => {
       .then(async (data) => {
         setOrder(data);
         try {
-          console.log(data.product)
           const product = await fetchProductById(Number(data.product));
-          console.log(product)
           setProductName(product.name);
           setPrice(product.price * data.amount)
           setUnitPrice(Number(product.price))
@@ -42,7 +40,6 @@ const OrdersDetailPage: React.FC = () => {
     setLoading(true);
     try {
       const updatedOrder = await fetchLaunchTrigger(Number(id), trigger);
-      console.log(updatedOrder)
       setOrder(updatedOrder);
     } catch (err) {
       console.error("Error al cambiar el estado:", err);
@@ -63,23 +60,34 @@ const OrdersDetailPage: React.FC = () => {
           <p>Precio unitario del producto: ${unitPrice ?? order.product}</p>
           <p>Precio de la orden: ${price ?? order.product}</p>
           <p>Estado actual: {order.current_state}</p>
+          <p>{order.active_ticket !== -1 && <li id="ticket">Support Ticket: #{order.active_ticket}</li>}</p>
           <ChangeState currentState={order.current_state} onTriggerClick={handleTrigger} />
         </div>
         <div className="order-log">
           <h2>Historial de estados</h2>
           <ul>
-            {Object.entries(order.state_log).map(([estado, datos], index) => (
-              <li key={index}>
-                <strong>{estado}</strong>
-                <ul>
-                  {Object.entries(datos).map(([clave, valor], subIndex) => (
-                    <li key={subIndex}>
-                      {clave}: {String(valor)}
+            {order.state_log.map((entry, index) => {
+              const estado = Object.keys(entry)[0];
+              const datos = entry[estado]
+
+              return (
+                <li key={index}>
+                  <strong>{estado}</strong>
+                  <ul>
+                    <li>Evento: {datos.evento}</li>
+                    <li>
+                      Hora:{" "}
+                      {new Date(datos.hora).toLocaleTimeString("es-CO", {
+                        hour: "2-digit",
+                        minute: "2-digit",
+                      }) +
+                        " - " +
+                        new Date(datos.hora).toLocaleDateString("es-CO")}
                     </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
+                  </ul>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

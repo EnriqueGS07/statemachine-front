@@ -44,3 +44,7 @@
 .order-card button:hover {
     background-color: #805a9f;
 }
+
+#ticket{
+    color: red;
+}

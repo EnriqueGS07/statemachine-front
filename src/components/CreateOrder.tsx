@@ -15,7 +15,6 @@ const CreateOrder: React.FC<props> = ({onOrderCreated}) => {
 
 
     const toggleForm = () => {
-        console.log("AAA")
         setShowForm(!showForm);
     };
 
@@ -31,7 +30,7 @@ const CreateOrder: React.FC<props> = ({onOrderCreated}) => {
             setAmount(0);
         } catch (err) {
             console.error(err);
-            setMessage("Error al crear la orden");
+            setMessage("ID de producto no valido");
         }
     };
 
