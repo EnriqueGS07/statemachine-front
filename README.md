@@ -1,4 +1,4 @@
-# Maquina de estados: Prueba tecnca Sainapsis
+# Maquina de estados: Prueba técnica Sainapsis
 ### By: Enrique González Suárez
 
 Este es el Repositorio del Front, fue desarrollado en React y Typescript
@@ -7,6 +7,8 @@ Este es el Repositorio del Front, fue desarrollado en React y Typescript
 ![Demo](https://img.shields.io/badge/demo-online-blue)
 ![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4-red)
 ![React](https://img.shields.io/badge/react-19.0-blue)
+
+❗*Se crearon dos repositorios, uno para el back y otro para el front, en este Repo podemos encontrar el front-end y el back-end lo econtramos en el repo: https://github.com/EnriqueGS07/statemachine*
 
 ## 🚀 Demo
 
