@@ -1,4 +1,4 @@
-# Maquina de estados: Prueba tecnca Sainapsis
+# Maquina de estados: Prueba técnica Sainapsis
 ### By: Enrique González Suárez
 
 Este es el Repositorio del Front, fue desarrollado en React y Typescript
