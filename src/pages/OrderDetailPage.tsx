@@ -57,12 +57,12 @@ const OrdersDetailPage: React.FC = () => {
       <div className="order-content">
         <div className="order-details">
           <h1>Orden #{order.id}</h1>
-          <p><strong>Usuario:</strong> {order.user}</p>
-          <p><strong>Producto:</strong> {productName ?? order.product}</p>
-          <p><strong>Cantidad:</strong> {order.amount}</p>
-          <p><strong>Precio unitario del producto:</strong> ${unitPrice ?? order.product}</p>
-          <p><strong>Precio de la orden:</strong> ${price ?? order.product}</p>
-          <p><strong>Estado actual:</strong> {order.current_state}</p>
+          <p>Usuario: {order.user}</p>
+          <p>Producto: {productName ?? order.product}</p>
+          <p>Cantidad: {order.amount}</p>
+          <p>Precio unitario del producto: ${unitPrice ?? order.product}</p>
+          <p>Precio de la orden: ${price ?? order.product}</p>
+          <p>Estado actual: {order.current_state}</p>
           <ChangeState currentState={order.current_state} onTriggerClick={handleTrigger} />
         </div>
         <div className="order-log">

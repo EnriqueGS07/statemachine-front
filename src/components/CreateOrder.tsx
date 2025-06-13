@@ -57,7 +57,7 @@ const CreateOrder: React.FC<props> = ({onOrderCreated}) => {
                             />
                         </div>
                         <div>
-                            <label>Producto</label>
+                            <label>ID del Producto</label>
                             <input
                               type="text"
                               value={product}

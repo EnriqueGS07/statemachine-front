@@ -24,7 +24,7 @@ const OrdersPage: React.FC = () => {
 
     return (
         <div className="order-page">
-            <h1>Ordenes</h1>
+            <h1>Gestor de Ordenes</h1>
             <div className="order-list">
                 {orders.map(order => (
                     <OrderCard key={order.id} {...order} />

@@ -3,6 +3,7 @@
 
 Este es el Repositorio del Front, fue desarrollado en React y Typescript
 
+
 ![Demo](https://img.shields.io/badge/demo-online-blue)
 ![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4-red)
 ![React](https://img.shields.io/badge/react-19.0-blue)
