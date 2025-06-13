@@ -6,9 +6,9 @@
 }
 
 .back-button {
-    color: black;
+    color: var(--bg-color);
     margin-bottom: 20px;
-    background-color: #ddd;
+    background-color: var(--primary-color);
     border: none;
     padding: 8px 12px;
     cursor: pointer;

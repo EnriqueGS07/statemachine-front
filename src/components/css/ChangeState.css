@@ -1,0 +1,13 @@
+.trigger{
+    background-color: #432f53;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.trigger:hover{
+    background-color: #805a9f;
+}

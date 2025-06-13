@@ -1,5 +1,6 @@
 import { Order } from "../services/OrderService";
 import { useNavigate } from "react-router-dom";
+import './css/ChangeState.css'
 
 type ChangeStatesProps = {
   currentState: string;
@@ -33,7 +34,7 @@ export const ChangeState: React.FC<ChangeStatesProps> = ({ currentState, onTrigg
         <p>No hay acciones disponibles.</p>
       ) : (
         availableTriggers.map((trigger) => (
-          <button key={trigger} onClick={() => onTriggerClick(trigger)} style={{ margin: "0.5rem" }}>
+          <button className="trigger" key={trigger} onClick={() => onTriggerClick(trigger)} style={{ margin: "0.5rem" }}>
             {trigger}
           </button>
         ))
