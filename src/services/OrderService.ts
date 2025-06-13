@@ -7,8 +7,11 @@ export type Order = {
   state_log: { [key: string]: any }
 };
 
+const apiUrl = process.env.REACT_APP_API_LAMBDA_URL;
+
 export async function fetchOrders(): Promise<Order[]> {
-  const res = await fetch("http://localhost:8000/api/orders/");
+  console.log(apiUrl);
+  const res = await fetch(`${apiUrl}/api/orders/`);
   if (!res.ok) {
     throw new Error("Error al obtener las órdenes");
   }
@@ -16,7 +19,7 @@ export async function fetchOrders(): Promise<Order[]> {
 }
 
 export async function fetchOrderbyID(id:number): Promise<Order> {
-  const res = await fetch(`http://localhost:8000/api/orders/${id}/`);
+  const res = await fetch(`${apiUrl}/api/orders/${id}/`);
   if (!res.ok) {
     throw new Error("Error al obtener la orded {id}");
   }
@@ -24,7 +27,7 @@ export async function fetchOrderbyID(id:number): Promise<Order> {
 }
 
 export async function fetchLaunchTrigger(id:number, trigger: any): Promise<Order> {
-  const res = await fetch(`http://localhost:8000/api/orders/${id}/update-state/`,{
+  const res = await fetch(`${apiUrl}/api/orders/${id}/update-state/`,{
   method:"PUT",
   headers:{
     "Content-Type": "application/json",
@@ -38,7 +41,7 @@ export async function fetchLaunchTrigger(id:number, trigger: any): Promise<Order
 }
 
 export async function createOrder(user: string, product: string, amount: number): Promise<Order> {
-  const res = await fetch("http://localhost:8000/api/orders/", {
+  const res = await fetch("https://6kmadpw0j5.execute-api.us-east-1.amazonaws.com/dev/api/orders/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
